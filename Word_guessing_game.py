@@ -4,14 +4,13 @@
 # In[ ]:
 
 
+import requests
 import random
-from random_word import RandomWords
 from IPython.display import clear_output
 import time
+lst = (requests.get('https://www.mit.edu/~ecprice/wordlist.10000').text).split('\n')
+lst = (lst[:500])
 
-words = RandomWords()
-lst = words.get_random_words()
-    
 for i in range(1,len(lst)):
     try:
         g = random.randint(3,6)
@@ -49,15 +48,8 @@ for i in range(1,len(lst)):
             time.sleep(2)
         
     except BaseException as owo:
-        print(owo)
         time.sleep(2)
     clear_output(wait=True)
-
-
-# In[5]:
-
-
-
 
 
 # In[ ]:
